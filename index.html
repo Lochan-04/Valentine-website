@@ -16,37 +16,12 @@
             overflow-x: hidden;
             position: relative;
         }
-        .falling-objects {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            pointer-events: none;
-        }
-        .falling-objects span {
-            position: absolute;
-            display: block;
-            width: 20px;
-            height: 20px;
-            background-size: contain;
-            background-repeat: no-repeat;
-            animation: fall linear infinite;
-        }
-        @keyframes fall {
-            from {
-                transform: translateY(-100vh);
-            }
-            to {
-                transform: translateY(100vh);
-            }
-        }
         .container {
-            margin: 50px auto;
-            padding: 30px;
-            max-width: 800px;
-            background: rgba(255, 255, 255, 0.8);
+            margin: 30px auto;
+            padding: 20px;
+            max-width: 90%;
+            width: 800px;
+            background: rgba(255, 255, 255, 0.9);
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             display: none;
@@ -60,30 +35,12 @@
             font-family: 'Pacifico', cursive;
             font-size: 36px;
         }
-        .intro-animation {
-            position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
-            background: #ffcccc;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            color: white;
-            font-size: 28px;
-            z-index: 10;
-            animation: fadeOut 3s ease-in-out forwards;
-            animation-delay: 3s;
-        }
-        @keyframes fadeOut {
-            to { opacity: 0; visibility: hidden; }
-        }
         .hidden {
             display: none;
         }
         .gallery {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
             gap: 10px;
             justify-content: center;
             padding: 10px;
@@ -98,6 +55,15 @@
         .gallery img:hover {
             transform: scale(1.1);
         }
+        @media (max-width: 768px) {
+            .container {
+                width: 95%;
+                padding: 15px;
+            }
+            .gallery {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
     </style>
 </head>
 <body>
@@ -105,8 +71,6 @@
         💖 Happy Valentine's Day, My Love! 💖
         <p>Get ready for something special... 🎁</p>
     </div>
-    
-    <div class="falling-objects"></div>
     
     <audio id="backgroundMusic" loop>
         <source src="./song1.mp3" type="audio/mpeg">
@@ -119,13 +83,13 @@
         <p class="message">Every moment with you is special, and I am so grateful to have you in my life. I love you! 💖</p>
         
         <button onclick="revealParagraph()">💌 Read My Love Letter</button>
-        <p id="loveParagraph" class="hidden" style="color: #000; font-size: 18px;">You are my heart and soul, the love of my life. Khushi, I love you so muchh...This is our first Valentine's day and i couldn't do much efforts for you and i am sorry for it but here it is just a simple website which i made for you to express my love...and i know i wont be ever be able to express my love fully to you because words simply cant define you,your character and your beauty...In the era of changing partners or cheating,i am falling for you everyday Khushi,its like har din tujse pyar hota hai muje..Jab bhi life mai bohot stressed out hota hu ya tension mai hota hu toh tera chehra dekh kar aur awaz sunn kr hi sukun mehsus hota hai, Tu mera ghar hai jaha muje sukun mehsus hota hai.You are my unpaid therapist. Tu jabse meri zindagi mai aayi hai tabse mai bohot jyada khush rehne laga hu,i didn't knew ki mai itna pyar deserve krta hu.Tu jabse meri life mai aayi hai tabse maine bohot kuch sikha hai aur hamesha better banne ki koshish krta hu because i know jo mai abhi hu tu woh hamesha deserve nhi krti isliye mujmai ab khud ko improve krne mai,ek better version banne ki motivation rehti hai and I promise to you Khushi ki I'll become a better person and grow as a good person with all the good qualities.
+        <p id="loveParagraph" class="hidden"> You are my heart and soul, the love of my life. Khushi, I love you so muchh...This is our first Valentine's day and i couldn't do much efforts for you and i am sorry for it but here it is just a simple website which i made for you to express my love...and i know i wont be ever be able to express my love fully to you because words simply cant define you,your character and your beauty...In the era of changing partners or cheating,i am falling for you everyday Khushi,its like har din tujse pyar hota hai muje..Jab bhi life mai bohot stressed out hota hu ya tension mai hota hu toh tera chehra dekh kar aur awaz sunn kr hi sukun mehsus hota hai, Tu mera ghar hai jaha muje sukun mehsus hota hai.You are my unpaid therapist. Tu jabse meri zindagi mai aayi hai tabse mai bohot jyada khush rehne laga hu,i didn't knew ki mai itna pyar deserve krta hu.Tu jabse meri life mai aayi hai tabse maine bohot kuch sikha hai aur hamesha better banne ki koshish krta hu because i know jo mai abhi hu tu woh hamesha deserve nhi krti isliye mujmai ab khud ko improve krne mai,ek better version banne ki motivation rehti hai and I promise to you Khushi ki I'll become a better person and grow as a good person with all the good qualities.
             I truly want ki tu hamesha khush rahe and smile krte rahe because your smile is very very precious and i will always try to be the reason behind your pretty smile and laughter....Tuje jab bhi hasta hua dekhta hu na toh literally mai apna sara tension vagera bhul jata hu,jab bhi tere sath time spend krta hu toh ek alag hi level ka confidence rehta hai ki mai life mai kuch bhi kr skta hu....
-                   I am really so grateful to have you in my life Khushi.....Thank you so much for coming into my life and I will always be with you and keep loving you always, "HAPPY VALENTINE'S DAY,MY LOVE", "I LOVE YOU SO SO MUCHH" :)💖</p>
+                   I am really so grateful to have you in my life Khushi.....Thank you so much for coming into my life and I will always be with you and keep loving you always, "HAPPY VALENTINE'S DAY,MY LOVE", "I LOVE YOU SO SO MUCHH" :) 💖</p>
         
         <button onclick="revealVideo()">🎥 Watch Our Special Moment</button>
         <div class="video-container hidden" id="videoContainer">
-            <p style="color: #000;">This moment will always be in my heart! ❤️</p>
+            <p>This moment will always be in my heart! ❤️</p>
             <video id="loveVideo" width="300" autoplay muted loop playsinline>
                 <source src="video1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
@@ -133,7 +97,6 @@
         </div>
         
         <h2>Our Beautiful Memories</h2>
-        <p style="color: #000;">These moments are forever in my heart... ❤️</p>
         <div class="gallery">
             <img src="image1.jpg" alt="Memory 1">
             <img src="image2.jpg" alt="Memory 2">
@@ -152,7 +115,6 @@
             <img src="image15.jpg" alt="Memory 10">
             <img src="image16.jpg" alt="Memory 10">
         </div>
-        <p style="color: #000;">More memories to create together... 💕</p>
     </div>
     
     <script>
